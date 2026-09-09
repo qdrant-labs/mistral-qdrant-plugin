@@ -1,0 +1,53 @@
+[project]
+name = "mistralai-search-toolkit-plugins-qdrant"
+version = "0.1.5"
+description = "Qdrant plugin for Mistral Search Toolkit"
+readme = "README.md"
+authors = [
+    { name = "Qdrant Team", email = "info@qdrant.tech" }
+]
+license = { file = "LICENSE" }
+keywords = ["ai", "information-retrieval", "mistral", "qdrant", "search"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.12"
+dependencies = [
+    "mistralai-search-toolkit>=0.0.13",
+    "pydantic>=2.13.5,<3",
+    "qdrant-client>=1.19",
+    "structlog>=25.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/qdrant-labs/mistral-qdrant-plugin"
+Repository = "https://github.com/qdrant-labs/mistral-qdrant-plugin"
+"Bug Tracker" = "https://github.com/qdrant-labs/mistral-qdrant-plugin/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.1",
+    "pytest-asyncio>=1.4",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mistralai"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1",
+    "pytest-asyncio>=1.4",
+]
